@@ -1,6 +1,14 @@
 import React from 'react'
 import { Container, Icon, Table } from 'semantic-ui-react'
 
+const style = {
+  code: {
+  backgroundColor: "#f1f1f1",
+  padding: "0.25em",
+  }
+
+}
+
 const GPOEdge = ({ name }) => (
   <Container onClick={console.log(name)}>
     <Table basic='very'>
@@ -12,7 +20,7 @@ const GPOEdge = ({ name }) => (
       <Table.Body>
         <Table.Row>
           <Table.Cell>1</Table.Cell>
-          <Table.Cell><p>Open Group Policy Management by pressing<code><mark><Icon name='windows' />key+R</mark></code> combination. Type in <code><mark>gpmc.msc</mark></code> and select OK.</p></Table.Cell>
+          <Table.Cell><p>Open Group Policy Management by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>2</Table.Cell>
@@ -24,15 +32,15 @@ const GPOEdge = ({ name }) => (
         </Table.Row>
         <Table.Row>
           <Table.Cell>4</Table.Cell>
-          <Table.Cell>Right-click on the new GPO and Select <code><mark>Edit</mark></code> to open the Group Policy Editor.</Table.Cell>
+          <Table.Cell>Right-click on the new GPO and Select <code style={style.code}>Edit</code> to open the Group Policy Editor.</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>5</Table.Cell>
-          <Table.Cell>Expand <code><mark>Computer configuration</mark></code> to force install 1password on admin computer. Expand  <code><mark>Computer/User configuration</mark></code> to force install 1password on users' computer.</Table.Cell>
+          <Table.Cell>Expand <code style={style.code}>Computer configuration</code> to force install 1password on admin computer. Expand  <code style={style.code}>Computer/User configuration</code> to force install 1password on users' computer.</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>6</Table.Cell>
-          <Table.Cell>Search and Right-click <code><mark>Administrative templates</mark></code> Select <code><mark>Add/Remove Templates</mark></code></Table.Cell>
+          <Table.Cell>Search and Right-click <code style={style.code}>Administrative templates</code> Select <code style={style.code}>Add/Remove Templates</code></Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>7</Table.Cell>
@@ -40,11 +48,11 @@ const GPOEdge = ({ name }) => (
         </Table.Row>
         <Table.Row>
           <Table.Cell>8</Table.Cell>
-          <Table.Cell>Search for <code><mark>Microsoft Edge</mark></code> in the <code><mark>Administrative templates</mark></code> and expand the folder</Table.Cell>
+          <Table.Cell>Search for <code style={style.code}>Microsoft Edge</code> in the <code style={style.code}>Administrative templates</code> and expand the folder</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>9</Table.Cell>
-          <Table.Cell>Select Extensions folder {`>`} Select <code><mark>Control which extensions are installed silently</mark></code> {`> Edit > Show > Enter 1Password ID under the value and the download link to Microsoft web store separated by a semi-colon without space in between > Ok > Apply.`}</Table.Cell>
+          <Table.Cell>Select Extensions folder {`>`} Select <code style={style.code}>Control which extensions are installed silently</code> {`> Edit > Show > Enter 1Password ID under the value and the download link to Microsoft web store separated by a semi-colon without space in between > Ok > Apply.`}</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
