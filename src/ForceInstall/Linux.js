@@ -1,7 +1,5 @@
 import React from 'react'
-import { Container, Icon, Table, Header } from 'semantic-ui-react'
-
-import { Chrome, Edge, Firefox } from '../browserInfo'
+import { Container, Icon, Table } from 'semantic-ui-react'
 
 const style = {
     code: {
@@ -11,10 +9,10 @@ const style = {
 
 }
 
-const ForceInstallMac = ({ name }) => (
+const Linux = ({ name }) => (
     <Container onClick={console.log(name)}>
-        <Container>For companies that don't use Windows Enterprise and have no access to Group Policy Management, it is still possible to force install 1Password</Container>
-
+        <Container>Linux can only force install 1Password using JSON </Container>
+{/* Chrome */}
         <Table basic='very'>
             <Table.Header>
                 <Table.Row>
@@ -29,8 +27,8 @@ const ForceInstallMac = ({ name }) => (
                 <Table.Row>
                     <Table.Cell>2</Table.Cell>
                     <Table.Cell>
-                        <p>To install 1Password on specific systems, copy the JSON file to this location: <code style={style.code}>~USERNAME/Library/Application Support/Google/Chrome/External Extensions/</code></p>
-                        <p>To install 1Password for all users, copy the file to this location:<code style={style.code}>/Library/Application Support/Google/Chrome/External Extensions/</code></p></Table.Cell>
+                        <p>To install 1Password on specific systems, copy the JSON file to this location: <code style={style.code}>/opt/google/chrome/extensions/</code></p>
+                        <p>To install 1Password for all users, copy the file to this location:<code style={style.code}>/usr/share/google-chrome/extensions/</code></p></Table.Cell>
                 </Table.Row>
                 <Table.Row>
                     <Table.Cell>3</Table.Cell>
@@ -47,7 +45,7 @@ const ForceInstallMac = ({ name }) => (
                 </Table.Row>
             </Table.Body>
         </Table>
-
+{/* Edge */}
         <Table basic='very'>
             <Table.Header>
                 <Table.Row>
@@ -62,8 +60,8 @@ const ForceInstallMac = ({ name }) => (
                 <Table.Row>
                     <Table.Cell>2</Table.Cell>
                     <Table.Cell>
-                        <p>To install 1Password on specific systems, copy the JSON file to this location: <code style={style.code}>~USERNAME/Library/Application Support/Microsoft Edge/External Extensions/</code></p>
-                        <p>To install 1Password for all users, copy the file to this location:<code style={style.code}>/Library/Application Support/Microsoft/Edge/External Extensions/</code></p></Table.Cell>
+                        <p>To install 1Password on specific systems, copy the JSON file to this location: <code style={style.code}>~/.config/microsoft-edge/External Extensions/</code></p>
+                        <p>To install 1Password for all users, copy the file to this location:<code style={style.code}>/usr/share/microsoft-edge/extensions/</code></p></Table.Cell>
                 </Table.Row>
                 <Table.Row>
                     <Table.Cell>3</Table.Cell>
@@ -80,7 +78,7 @@ const ForceInstallMac = ({ name }) => (
                 </Table.Row>
             </Table.Body>
         </Table>
-
+{/* Firefox */}
         <Table basic='very'>
             <Table.Header>
                 <Table.Row>
@@ -144,4 +142,4 @@ const ForceInstallMac = ({ name }) => (
 
     </Container>
 )
-export default ForceInstallMac
+export default Linux

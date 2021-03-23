@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
 import { Container, Menu } from 'semantic-ui-react'
 
-import GPOEdge from './Enterprise/GPOEdge'
-import ForceInstallWindowsChrome from './Windows/ForceInstallWindowsChrome'
-import ForceInstallMac from './Mac/ForceInstallMac'
+import GPO from './ForceInstall/GPO'
+import Windows from './ForceInstall/Windows'
+import Mac from './ForceInstall/Mac'
+import Linux from './ForceInstall/Linux'
 
 export default class PlatformMenu extends Component {
   state = { activeItem: 'Windows Enterprise' }
 
   handleItemClick = (e, { name }) =>
-    this.setState({ activeItem: name },
-      console.log(name))
+    this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state
     var rendercontains = '';
 
     if (activeItem === 'Windows Enterprise') {
-      rendercontains = <GPOEdge/>
+      rendercontains = <GPO/>
     } else if (activeItem === 'Windows') {
-      rendercontains = <ForceInstallWindowsChrome/>
+      rendercontains = <Windows/>
     } else if (activeItem === 'Mac') {
-      rendercontains = <ForceInstallMac/>
+      rendercontains = <Mac/>
     }else {
-      rendercontains = <p>Nothing to show</p>
+      rendercontains = <Linux/>
     }
 
     return (
