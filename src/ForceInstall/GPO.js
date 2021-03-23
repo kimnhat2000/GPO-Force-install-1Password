@@ -163,22 +163,14 @@ class GPO extends React.Component {
               </Table.Row>
               <Table.Row>
                 <Table.Cell>5</Table.Cell>
-                <Table.Cell><p>Open Group Policy Management by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>6</Table.Cell>
-                <Table.Cell><p>Open Group Policy Management by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>7</Table.Cell>
                 <Table.Cell><p>Right-click the Policy and select Edit to open Group Policy Management Editor</p></Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>8</Table.Cell>
+                <Table.Cell>6</Table.Cell>
                 <Table.Cell><p>Search and expand <code style={style.code}>Administrative Templates</code>{`> Firefox > Extensions > select`} <code sytle={style.code}>Extensions to Install</code> on the right menu {`> Right click > Edit`}</p></Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>9</Table.Cell>
+                <Table.Cell>7</Table.Cell>
                 <Table.Cell><p>Select Enable and Show buttons {`>`} add the link of 1Password's xpi file under value</p></Table.Cell>
               </Table.Row>
             </Table.Body>
