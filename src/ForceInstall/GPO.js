@@ -155,7 +155,7 @@ class GPO extends React.Component {
               </Table.Row>
               <Table.Row>
                 <Table.Cell>3</Table.Cell>
-                <Table.Cell><p>{`Unzip the file > copy`} <code style={style.code}>firefox.admx</code> and <code style={style.code}>firefox.adml</code> of your language to <code style={style.code}>C:\Windows\PolicyDefinitions</code> <code style={style.code}>C:\Windows\PolicyDefinitions\(your language)</code> </p></Table.Cell>
+                <Table.Cell><p>{`Unzip the file > copy`} <code style={style.code}>firefox.admx</code>to <code style={style.code}>C:\Windows\PolicyDefinitions</code> and <code style={style.code}>firefox.adml</code> of your language to <code style={style.code}>C:\Windows\PolicyDefinitions\(your language)</code> </p></Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>4</Table.Cell>
