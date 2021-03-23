@@ -3,6 +3,7 @@ import { Container, Menu } from 'semantic-ui-react'
 
 import GPOEdge from './Enterprise/GPOEdge'
 import ForceInstallWindowsChrome from './Windows/ForceInstallWindowsChrome'
+import ForceInstallMac from './Mac/ForceInstallMac'
 
 export default class PlatformMenu extends Component {
   state = { activeItem: 'Windows Enterprise' }
@@ -19,7 +20,9 @@ export default class PlatformMenu extends Component {
       rendercontains = <GPOEdge/>
     } else if (activeItem === 'Windows') {
       rendercontains = <ForceInstallWindowsChrome/>
-    } else {
+    } else if (activeItem === 'Mac') {
+      rendercontains = <ForceInstallMac/>
+    }else {
       rendercontains = <p>Nothing to show</p>
     }
 
