@@ -6,6 +6,8 @@ import Windows from './ForceInstall/Windows'
 import Mac from './ForceInstall/Mac'
 import Linux from './ForceInstall/Linux'
 
+// import Test from './test/Test'
+
 export default class PlatformMenu extends Component {
   state = { activeItem: 'Windows Enterprise' }
 
@@ -54,7 +56,6 @@ export default class PlatformMenu extends Component {
         <Container>
           {rendercontains}
         </Container>
-
       </div>
     )
   }

@@ -1,185 +1,93 @@
 import React from 'react'
-import { Container, Icon, Table } from 'semantic-ui-react'
+import { Container, Table } from 'semantic-ui-react'
 
-import { Chrome } from '../browserInfo'
+import { BrowserHeader } from '../BrowserHeader/BrowserHeader'
+import { Enterprise } from '../Data/data'
 
-class GPO extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      chrome: false,
-      edge: false,
-      firefox: false
-    }
-  }
-
-  render() {
-    const { chrome, edge, firefox } = this.state
-    const style = {
-      code: {
-        backgroundColor: "#f1f1f1",
-        padding: "0.25em",
-      }
-
+class Test extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            chrome: false,
+            edge: true,
+            firefox: false
+        }
     }
 
-    this.onClickEdge = () => {
-      this.setState({ edge: !edge })
+    render() {
+        const { chrome, edge, firefox } = this.state
+        this.onClickEdge = (v) => {
+            this.setState({ edge: !edge })
+        }
+
+        this.onClickChrome = () => {
+            this.setState({ chrome: !chrome })
+        }
+
+        this.onClickFirefox = () => {
+            this.setState({ firefox: !firefox }, () => console.log(chrome))
+        }
+        return (
+            <Container>
+                <Table basic='very'>
+                    <BrowserHeader
+                        name={'Microsoft Edge'}
+                        icon={'microsoft edge'}
+                        status={edge}
+                        clickCheck={this.onClickEdge}
+                    />
+                    {edge &&
+                        <Table.Body>
+                            {Enterprise.Edge.map((item, index) => (
+                                <Table.Row key={index}>
+                                    <Table.Cell>{item.s}</Table.Cell>
+                                    <Table.Cell>{item.p}</Table.Cell>
+                                </Table.Row>))
+                            }
+                        </Table.Body>
+                    }
+                </Table>
+
+                <Table basic='very'>
+                    <BrowserHeader
+                        name={'Chrome'}
+                        icon={'chrome'}
+                        status={chrome}
+                        clickCheck={this.onClickChrome}
+                    />
+                    {chrome &&
+                        <Table.Body>
+                            {Enterprise.Chrome.map((item, index) => (
+                                <Table.Row key={index}>
+                                    <Table.Cell>{item.s}</Table.Cell>
+                                    <Table.Cell>{item.p}</Table.Cell>
+                                </Table.Row>))
+                            }
+                        </Table.Body>
+                    }
+                </Table>
+
+                <Table basic='very'>
+                    <BrowserHeader
+                        name={'Firefox'}
+                        icon={'firefox'}
+                        status={firefox}
+                        clickCheck={this.onClickFirefox}
+                    />
+                    {firefox &&
+                        <Table.Body>
+                            {Enterprise.Firefox.map((item, index) => (
+                                <Table.Row key={index}>
+                                    <Table.Cell>{item.s}</Table.Cell>
+                                    <Table.Cell>{item.p}</Table.Cell>
+                                </Table.Row>))
+                            }
+                        </Table.Body>
+                    }
+                </Table>
+            </Container>
+        )
     }
-
-    this.onClickChrome = () => {
-      this.setState({ chrome: !chrome })
-    }
-
-    this.onClickFirefox = () => {
-      this.setState({ firefox: !firefox }, () => console.log(chrome))
-    }
-
-    return (
-      <Container>
-        <Table basic='very'>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell colSpan='4' onClick={() => this.onClickEdge()}><Icon name='microsoft edge' />Microsoft Edge <Icon name={edge ? 'arrow down' : 'arrow up'} /></Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          {edge &&
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>1</Table.Cell>
-                <Table.Cell><p>Open Group Policy Management by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>2</Table.Cell>
-                <Table.Cell>Get the latest policies file for your Edge version from <a href="https://www.microsoft.com/en-us/edge/business/download">here</a></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>3</Table.Cell>
-                <Table.Cell>Create a new GPO for 1Password or add to an existing one.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>4</Table.Cell>
-                <Table.Cell>Right-click on the new GPO and Select <code style={style.code}>Edit</code> to open the Group Policy Editor.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>5</Table.Cell>
-                <Table.Cell>Expand <code style={style.code}>Computer configuration</code> to force install 1password on admin computer. Expand  <code style={style.code}>Computer/User configuration</code> to force install 1password on users' computer.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>6</Table.Cell>
-                <Table.Cell>Search and Right-click <code style={style.code}>Administrative templates</code> Select <code style={style.code}>Add/Remove Templates</code></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>7</Table.Cell>
-                <Table.Cell>Add and upload the policies template downloaded above</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>8</Table.Cell>
-                <Table.Cell>Search for <code style={style.code}>Microsoft Edge</code> in the <code style={style.code}>Administrative templates</code> and expand the folder</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>9</Table.Cell>
-                <Table.Cell>Select Extensions folder {`>`} Select <code style={style.code}>Control which extensions are installed silently</code> {`> Edit > Show > Enter 1Password ID under the value and the download link to Microsoft web store separated by a semi-colon without space in between > Ok > Apply.`}</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          }
-        </Table>
-        {/* Chrome */}
-        <Table basic='very'>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell colSpan='4' onClick={() => this.onClickChrome()}><Icon name='chrome' />Chrome <Icon name={chrome ? 'arrow down' : 'arrow up'} /></Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          {chrome &&
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>1</Table.Cell>
-                <Table.Cell><p>Open Group Policy Management by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>2</Table.Cell>
-                <Table.Cell>Get the latest policies file for your Chrome from  <a href="https://chromeenterprise.google/browser/download/#download">here</a>{`> Select`} <code style={style.code}>Manage policies</code> {`tab > Download the latest Chrome policies template.`} {`>`} Unzip and select the <code style={style.code}>chrome.adm</code> of your language</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>3</Table.Cell>
-                <Table.Cell>Create a new GPO for 1Password or add to an existing one.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>4</Table.Cell>
-                <Table.Cell>Right-click on the new GPO and Select <code style={style.code}>Edit</code> to open the Group Policy Editor.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>5</Table.Cell>
-                <Table.Cell>Expand <code style={style.code}>Computer configuration</code> to force install 1password on admin computer. Expand  <code style={style.code}>Computer/User configuration</code> to force install 1password on users' computer.</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>6</Table.Cell>
-                <Table.Cell>Search and Right-click <code style={style.code}>Administrative templates</code> Select <code style={style.code}>Add/Remove Templates</code></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>7</Table.Cell>
-                <Table.Cell>Add and upload the policies template you select above</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>8</Table.Cell>
-                <Table.Cell> To add extension to users. Expand {`Computer/User configuration folder`}  {`> Policies > Administrative templates > Classic administrative templates > Google > Google Chrome > Extensions`}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>9</Table.Cell>
-                <Table.Cell>Select Extensions folder {`>`} Select <code style={style.code}>Configure the list of force-installed extensions</code> {`> Edit > Show > Enter 1Password ID under the value and the download link to Chrome separated by a semi-colon without space in between > Ok > Apply.`}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>10</Table.Cell>
-                <Table.Cell>It shoudl look like this: <code style={style.code}>{Chrome.ID};{Chrome.Link}</code></Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          }
-        </Table>
-        {/* Firefox */}
-        <Table basic='very'>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell colSpan='4' onClick={() => this.onClickFirefox()}><Icon name='firefox' />Firefox <Icon name={firefox ? 'arrow down' : 'arrow up'} /></Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          {firefox &&
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>1</Table.Cell>
-                <Table.Cell><p>Open Group Policy Management on your domain controler by pressing<Icon name='windows' /><code style={style.code}>key+R</code> combination. Type in <code style={style.code}>gpmc.msc</code> and select OK.</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>2</Table.Cell>
-                <Table.Cell><p>Go <a href='https://github.com/mozilla/policy-templates/releases'>here</a> to get the lastest policies for Firefox</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>3</Table.Cell>
-                <Table.Cell><p>{`Unzip the file > copy`} <code style={style.code}>firefox.admx</code>to <code style={style.code}>C:\Windows\PolicyDefinitions</code> and <code style={style.code}>firefox.adml</code> of your language to <code style={style.code}>C:\Windows\PolicyDefinitions\(your language)</code> </p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>4</Table.Cell>
-                <Table.Cell><p>On Group Policy Management, create a new policy for Firefox under <code style={style.code}>Group Policy Objects</code></p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>5</Table.Cell>
-                <Table.Cell><p>Right-click the Policy and select Edit to open Group Policy Management Editor</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>6</Table.Cell>
-                <Table.Cell><p>Search and expand <code style={style.code}>Administrative Templates</code>{`> Firefox > Extensions > select`} <code sytle={style.code}>Extensions to Install</code> on the right menu {`> Right click > Edit`}</p></Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>7</Table.Cell>
-                <Table.Cell><p>Select Enable and Show buttons {`>`} add the link of 1Password's xpi file under value</p></Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          }
-
-        </Table>
-
-      </Container>
-    )
-  }
 }
-export default GPO
+
+export default Test
