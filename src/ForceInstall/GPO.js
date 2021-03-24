@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Table } from 'semantic-ui-react'
 
-import { BrowserHeader } from '../BrowserHeader/BrowserHeader'
-import { Enterprise } from '../Data/data'
+import {BrowserHeader} from '../BrowserHeader/BrowserHeader'
+import { enterprise } from '../Data/data'
 
-class Test extends React.Component {
+class GPO extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -38,7 +38,7 @@ class Test extends React.Component {
                     />
                     {edge &&
                         <Table.Body>
-                            {Enterprise.Edge.map((item, index) => (
+                            {enterprise.Edge.map((item, index) => (
                                 <Table.Row key={index}>
                                     <Table.Cell>{item.s}</Table.Cell>
                                     <Table.Cell>{item.p}</Table.Cell>
@@ -57,7 +57,7 @@ class Test extends React.Component {
                     />
                     {chrome &&
                         <Table.Body>
-                            {Enterprise.Chrome.map((item, index) => (
+                            {enterprise.Chrome.map((item, index) => (
                                 <Table.Row key={index}>
                                     <Table.Cell>{item.s}</Table.Cell>
                                     <Table.Cell>{item.p}</Table.Cell>
@@ -76,7 +76,7 @@ class Test extends React.Component {
                     />
                     {firefox &&
                         <Table.Body>
-                            {Enterprise.Firefox.map((item, index) => (
+                            {enterprise.Firefox.map((item, index) => (
                                 <Table.Row key={index}>
                                     <Table.Cell>{item.s}</Table.Cell>
                                     <Table.Cell>{item.p}</Table.Cell>
@@ -90,4 +90,4 @@ class Test extends React.Component {
     }
 }
 
-export default Test
+export default GPO

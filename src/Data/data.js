@@ -8,7 +8,7 @@ const style = {
     }
 }
 
-export const Enterprise = {
+export const enterprise = {
     Edge: [
         {
             s: 1,
@@ -121,7 +121,7 @@ export const Enterprise = {
     ]
 }
 
-export const Windows = {
+export const windows = {
     Chrome: [
         {
             s: 1,
@@ -222,7 +222,7 @@ export const Windows = {
     ]
 }
 
-export const Mac = {
+export const mac = {
     Chrome: [
         {
             s: 1,
@@ -255,8 +255,8 @@ export const Mac = {
             s: 3,
             p: <span><p>Add this line of code to your JSON file:</p>
                 <code style={style.code}>{`{
-"external_update_url": "https://clients2.google.com/service/update2/crx"
-}`}</code></span>
+"external_update_url": "`}{Edge.Link}"
+{`}`}</code></span>
         },
         {
             s: 4,
@@ -315,7 +315,7 @@ export const Mac = {
     ]
 }
 
-export const Linux = {
+export const linux = {
     Chrome: [
         {
             s: 1,
@@ -352,7 +352,7 @@ export const Linux = {
             s: 3,
             p: <span><p>Add this line of code to your JSON file:</p>
                 <code style={style.code}>{`{
-"external_update_url": `}"{Edge.Link}"</code></span>
+"external_update_url": `}"{Edge.Link}"{`}`}</code></span>
         },
         {
             s: 4,

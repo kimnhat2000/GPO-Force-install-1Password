@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Table, Header } from 'semantic-ui-react'
 
-import { BrowserHeader } from '../BrowserHeader/BrowserHeader'
-import { Mac } from '../Data/data'
+import {BrowserHeader} from '../BrowserHeader/BrowserHeader'
+import { mac } from '../Data/data'
 
-class Test extends React.Component {
+class Mac extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -16,7 +16,7 @@ class Test extends React.Component {
 
     render() {
         const { chrome, edge, firefox } = this.state
-        const { Edge, Chrome, Firefox } = Mac
+        const { Edge, Chrome, Firefox } = mac
         this.onClickEdge = (v) => {
             this.setState({ edge: !edge }, () => console.log('clicked'))
         }
@@ -92,4 +92,4 @@ class Test extends React.Component {
     }
 }
 
-export default Test
+export default Mac
