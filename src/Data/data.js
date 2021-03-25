@@ -1,4 +1,7 @@
 import { Icon } from 'semantic-ui-react'
+import JSONPretty from 'react-json-pretty'
+import {Container} from 'semantic-ui-react'
+
 import { Chrome, Edge } from '../browserInfo'
 
 const style = {
@@ -309,7 +312,7 @@ export const mac = {
 "install_url": "https://addons.cdn.mozilla.net/user-media/addons/950528/1password_password_manager-1.23.1-fx.xpi?filehash=sha256%3A47e9e98f1072d93d595002dc8c221e5cca17e091b3431563a8e3e2be575c5cc1"
 }
 }
-}`}
+}}`}
                 </code></span>
         }
     ]
@@ -390,7 +393,7 @@ export const linux = {
         },
         {
             s: 4,
-            p: <span><p>It should look like this</p>
+            p: <Container><p>It should look like this</p>
                 <code>{`{
 "policies": {
 "ExtensionSettings": {
@@ -405,8 +408,10 @@ export const linux = {
 "install_url": "https://addons.cdn.mozilla.net/user-media/addons/950528/1password_password_manager-1.23.1-fx.xpi?filehash=sha256%3A47e9e98f1072d93d595002dc8c221e5cca17e091b3431563a8e3e2be575c5cc1"
 }
 }
+}
 }`}
-                </code></span>
+                </code>
+                </Container>
         }
     ]
 }

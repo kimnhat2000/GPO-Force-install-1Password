@@ -56,6 +56,9 @@ export default class PlatformMenu extends Component {
         <Container>
           {rendercontains}
         </Container>
+
+        {/* <Test/> */}
+        
       </div>
     )
   }

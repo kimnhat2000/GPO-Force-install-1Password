@@ -1,95 +1,49 @@
-import React from 'react'
-import { Container, Table, Header } from 'semantic-ui-react'
+import React from "react";
+import JSONPretty from "react-json-pretty";
+import { Container, TextArea } from "semantic-ui-react";
 
-import { BrowserHeader } from '../BrowserHeader/BrowserHeader'
-import { Linux } from '../Data/data'
-
-class Test extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            chrome: false,
-            edge: true,
-            firefox: false
-        }
+const Test = () => {
+  return (
+    <>
+      <Container>
+        <h2>WITHOUT STYLE</h2>
+        <JSONPretty data={{
+  policies: {
+    ExtensionSettings: {
+      "*": {
+        blocked_install_message: "Custom error message.",
+        install_sources: ["about:addons", "https://addons.mozilla.org/"],
+        installation_mode: "allowed",
+        allowed_types: ["extension"]
+      },
+      "{d634138d-c276-4fc8-924b-40a0ea21d284}": {
+        installation_mode: "force_installed",
+        install_url:
+          "https://addons.cdn.mozilla.net/user-media/addons/950528/1password_password_manager-1.23.1-fx.xpi?filehash=sha256%3A47e9e98f1072d93d595002dc8c221e5cca17e091b3431563a8e3e2be575c5cc1"
+      }
     }
-
-    render() {
-        const { chrome, edge, firefox } = this.state
-        const { Edge, Chrome, Firefox } = Linux
-        this.onClickEdge = (v) => {
-            this.setState({ edge: !edge }, () => console.log('clicked'))
-        }
-
-        this.onClickChrome = () => {
-            this.setState({ chrome: !chrome })
-        }
-
-        this.onClickFirefox = () => {
-            this.setState({ firefox: !firefox }, () => console.log(chrome))
-        }
-        return (
-            <Container>
-                <Header size='small'>Linux can only force install 1Password using JSON </Header>
-                <Table basic='very'>
-                    <BrowserHeader
-                        name={'Microsoft Edge'}
-                        icon={'microsoft edge'}
-                        status={edge}
-                        clickCheck={this.onClickEdge}
-                    />
-                    {edge &&
-                        <Table.Body>
-                            {Edge.map((item, index) => (
-                                <Table.Row key={index}>
-                                    <Table.Cell>{item.s}</Table.Cell>
-                                    <Table.Cell>{item.p}</Table.Cell>
-                                </Table.Row>))
-                            }
-                        </Table.Body>
-                    }
-                </Table>
-
-                <Table basic='very'>
-                    <BrowserHeader
-                        name={'Chrome'}
-                        icon={'chrome'}
-                        status={chrome}
-                        clickCheck={this.onClickChrome}
-                    />
-                    {chrome &&
-                        <Table.Body>
-                            {Chrome.map((item, index) => (
-                                <Table.Row key={index}>
-                                    <Table.Cell>{item.s}</Table.Cell>
-                                    <Table.Cell>{item.p}</Table.Cell>
-                                </Table.Row>))
-                            }
-                        </Table.Body>
-                    }
-                </Table>
-
-                <Table basic='very'>
-                    <BrowserHeader
-                        name={'Firefox'}
-                        icon={'firefox'}
-                        status={firefox}
-                        clickCheck={this.onClickFirefox}
-                    />
-                    {firefox &&
-                        <Table.Body>
-                            {Firefox.map((item, index) => (
-                                <Table.Row key={index}>
-                                    <Table.Cell>{item.s}</Table.Cell>
-                                    <Table.Cell>{item.p}</Table.Cell>
-                                </Table.Row>))
-                            }
-                        </Table.Body>
-                    }
-                </Table>
-            </Container>
-        )
+  }
+}} />
+      </Container>
+    </>
+  );
+};
+const json = {
+  policies: {
+    ExtensionSettings: {
+      "*": {
+        blocked_install_message: "Custom error message.",
+        install_sources: ["about:addons", "https://addons.mozilla.org/"],
+        installation_mode: "allowed",
+        allowed_types: ["extension"]
+      },
+      "{d634138d-c276-4fc8-924b-40a0ea21d284}": {
+        installation_mode: "force_installed",
+        install_url:
+          "https://addons.cdn.mozilla.net/user-media/addons/950528/1password_password_manager-1.23.1-fx.xpi?filehash=sha256%3A47e9e98f1072d93d595002dc8c221e5cca17e091b3431563a8e3e2be575c5cc1"
+      }
     }
-}
+  }
+};
 
-export default Test
+export default Test;
