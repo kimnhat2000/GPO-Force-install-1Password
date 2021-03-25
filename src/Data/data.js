@@ -269,7 +269,7 @@ export const mac = {
     Firefox: [
         {
             s: 1,
-            p: <span>Open {`the /Applications folder > Search > Right-click Firefox > Show Package Contents > Contents > Resources > Create a`} <code style={style.code}>distribution</code> folder and Add <code style={style.code}>policies.json</code> file in it.<code style={style.code}>C:\Program Files\Mozilla Firefox</code></span>
+            p: <span>Open {`the /Applications folder > Search > Right-click Firefox > Show Package Contents > Contents > Resources > Create a`} <code style={style.code}>distribution</code> folder and Add <code style={style.code}>policies.json</code> file in it.</span>
         },
         {
             s: 2,
@@ -365,7 +365,7 @@ export const linux = {
     Firefox: [
         {
             s: 1,
-            p: <span>Open {`the /Applications folder > Search > Right-click Firefox > Show Package Contents > Contents > Resources > Create a`} <code style={style.code}>distribution</code> folder and Add <code style={style.code}>policies.json</code> file in it.<code style={style.code}>C:\Program Files\Mozilla Firefox</code></span>
+            p: <span>Open {`the /Applications folder > Search > Right-click Firefox > Show Package Contents > Contents > Resources > Create a`} <code style={style.code}>distribution</code> folder and Add <code style={style.code}>policies.json</code> file in it.</span>
         },
         {
             s: 2,
